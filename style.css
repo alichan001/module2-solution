@@ -1,63 +1,102 @@
 * {
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    margin: 15px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 h1 {
-    text-align: center;
-    margin: 20px 0;
+    font-size: 1.75em;
 }
 
-.section-container {
+/* Container for all sections */
+.container {
     width: 100%;
-    padding: 0 15px;
 }
 
-.section {
-    position: relative;
-    float: left;
-    width: 100%;
-    padding: 15px;
+/* Section styles */
+.menu-item {
+    background-color: #A9A9A9; /* Gray background */
     border: 1px solid black;
-    background-color: #f4f4f4;
-    margin-bottom: 15px;
+    padding: 10px;
+    margin: 10px;
+    position: relative;
 }
 
+.menu-item p {
+    margin-top: 40px; /* Space for title region */
+    font-size: 1em;
+}
+
+/* Title region styles */
 .section-title {
     position: absolute;
     top: 0;
     right: 0;
-    padding: 5px 10px;
+    padding: 5px 20px;
     border: 1px solid black;
-    background-color: #d3d3d3;
-    font-size: 125%;
+    font-size: 1.25em;
+    font-weight: bold;
+    text-align: center;
 }
 
-/* Desktop View */
+/* Individual section title colors */
+#chicken {
+    background-color: #FFCDD2; /* Light pink for Chicken */
+}
+
+#beef {
+    background-color: #E57373; /* Medium red for Beef */
+}
+
+#sushi {
+    background-color: #FFF9C4; /* Light yellow for Sushi */
+}
+
+/* Desktop view (992px and above) */
 @media (min-width: 992px) {
-    .section {
-        width: 33.33%;
+    .menu-item {
+        float: left;
+        width: 31.33%;
+        margin: 1%;
     }
 }
 
-/* Tablet View */
+/* Tablet view (between 768px and 991px) */
 @media (min-width: 768px) and (max-width: 991px) {
-    .section {
-        width: 50%;
+    .menu-item:nth-child(1), .menu-item:nth-child(2) {
+        float: left;
+        width: 48%;
+        margin: 1%;
     }
-    .section.sushi {
-        width: 100%;
+    
+    .menu-item:nth-child(3) {
+        clear: both;
+        width: 98%;
+        margin: 1%;
     }
 }
 
-/* Mobile View */
+/* Mobile view (equal to or less than 767px) */
 @media (max-width: 767px) {
-    .section {
-        width: 100%;
+    .menu-item {
+        width: 98%;
+        margin: 1%;
     }
+}
+
+/* Clearfix to handle floats */
+.container::after {
+    content: "";
+    display: table;
+    clear: both;
 }
